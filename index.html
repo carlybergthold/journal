@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Daily Journal</title>
+    <link rel="stylesheet" type="text/css" href="/styles/journal.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>My Daily Journal</h1>
+    </header>
+
+    <div class="main-container">
+
+        <div class="form-container">
+            <h2>Input</h2>
+            <form class="form">
+                <fieldset>
+                    <label>Date</label>
+                    <input type="date" class="form-field date"></input>
+               
+                    <label>Latest Concepts</label>
+                    <input type="text" class="form-field concepts"></input>
+              
+                    <label>Journal Entry</label>
+                    <textarea name="journalEntry" class="form-field entry" cols="30" rows="4">My thoughts...</textarea>
+             
+                    <label>Currently Feeling</label>
+                    <select name="moods" class="form-field feelings">
+                        <option value="Happy">Happy</option>
+                        <option value="Excited">Excited</option>
+                        <option value="Sad">Sad</option>
+                        <option value="Confused">Confused</option>
+                        <option value="Over It">Over It</option>
+                    </select>
+                </fieldset>
+                <div class="submit-container">
+                <input type="submit" value="Submit Entry" id="submit-button">
+                </div>
+            </form>
+        </div>
+
+        <div class="entry-container">
+         
+        </div>
+
+    </div>
+
+    <script src="/scripts/data.js"></script>
+    <script src="/scripts/entryComponent.js"></script>
+    <script src="/scripts/entriesDOM.js"></script>
+    <script src="/scripts/journal.js"></script>
+    
+</body>
+</html>

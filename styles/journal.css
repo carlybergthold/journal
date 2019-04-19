@@ -1,0 +1,83 @@
+html {
+    background: url('/images/stripes.jpg') no-repeat center center fixed;
+    background-size: cover;
+    /* background-color: gray; */
+}
+
+body {
+    width: 100%;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background-color: rgb(241, 205, 3);
+    width: 100%;
+}
+
+header h1 {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/* main code for form container */
+.form-container {
+    margin: 2em;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0rem 2rem 2rem 2rem;
+    flex: 1 300px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    font-size: 2.5em;
+    color: rgb(241, 205, 3);
+}
+
+
+#submit-button {
+    background-color: rgb(241, 205, 3);
+    color: white;
+    font-size: 1em;
+    height: 1.8em;
+}
+
+#submit-button:hover {
+    background-color: rgb(187, 160, 7);;
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.form-field {
+    margin-bottom: 2em;
+}
+
+
+/* main code for journal entry container */
+.entry-container {
+    margin: 2em;
+    background-color: white;
+    padding: 0rem 2rem 2rem 2rem;
+    flex: 1 300px;
+}
