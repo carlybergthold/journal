@@ -6,7 +6,7 @@ addEntryToDOM = (array) => {
     array.forEach(element => {
         const entry = createEntry(element);
         const el = document.querySelector('.entry-container');
-        el.innerHTML = entry;
+        el.innerHTML += entry;
     });
 
 }
