@@ -21,16 +21,16 @@
             <form class="form">
                 <fieldset>
                     <label>Date</label>
-                    <input type="date" class="form-field date"></input>
+                    <input type="date" class="form-field date" required></input>
                
                     <label>Latest Concepts</label>
-                    <input type="text" class="form-field concepts"></input>
+                    <input type="text" class="form-field concepts" required></input>
               
                     <label>Journal Entry</label>
-                    <textarea name="journalEntry" class="form-field entry" cols="30" rows="4">My thoughts...</textarea>
+                    <textarea name="journalEntry" class="form-field entry" cols="30" rows="4" required>My thoughts...</textarea>
              
                     <label>Currently Feeling</label>
-                    <select name="moods" class="form-field feelings">
+                    <select name="moods" class="form-field mood" required>
                         <option value="Happy">Happy</option>
                         <option value="Excited">Excited</option>
                         <option value="Sad">Sad</option>
