@@ -1,6 +1,6 @@
 
 
-//template for journal entry HTML
+// template for journal entry HTML
 createEntry = (entry) => {
     return `
             <div class="journal-entry">
@@ -8,6 +8,11 @@ createEntry = (entry) => {
                 <p><strong>Concepts Learned:</strong> ${entry.concepts}</p>
                 <p><strong>Entry:</strong> ${entry.entry}</p>
                 <p><strong>Mood:</strong> ${entry.mood}</p>
+                <button class="delete-btn" id="${entry.id}">Delete</button>
             </div>
             `
 }
+
+
+
+
