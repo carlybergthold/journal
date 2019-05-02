@@ -3,6 +3,7 @@
     Main application logic that uses the functions and objects
     defined in the other JavaScript files.
 */
+
 API.getJournalEntries()
 .then(entries => addEntryToDOM(entries));
 
@@ -38,3 +39,38 @@ const postData = (object) => {
         body: JSON.stringify(object)
     })
 }
+
+
+
+let radioButtons = document.getElementsByName("mood-radio");
+
+radioButtons.forEach(button => {
+    button.addEventListener("click", event => {
+
+        if (event.target.value === "all") {
+            API.getJournalEntries()
+            .then(entries => addEntryToDOM(entries));
+        }
+
+        else {
+
+            const moodVal = event.target.value.toLowerCase();
+            console.log(moodVal);
+
+            function moodFilter(obj) {
+                if (moodVal === obj.mood.toLowerCase()) {
+                return obj;
+                } 
+            }
+
+            // clear the original entries
+            const el = document.querySelector('.entry-container');
+            el.innerHTML = "";
+            
+            // get the filtered entries
+            API.getJournalEntries()
+            .then(entries => addEntryToDOM(entries.filter(moodFilter)));
+
+        }    
+    })
+});
