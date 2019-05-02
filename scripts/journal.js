@@ -10,14 +10,19 @@ API.getJournalEntries()
 const submitBtn = document.querySelector("#submit-button");
 
 submitBtn.addEventListener("click", function (e) {
-    console.log("I was clicked");
+
     let date = document.querySelector(".date").value;
     let concepts = document.querySelector(".concepts").value;
     let entry = document.querySelector(".entry").value;
     let mood = document.querySelector(".mood").value;
     let newEntry = newJournalEntry(date, concepts, entry, mood);
-    console.log("newentry", newEntry);
-    postData(newEntry);
+
+    if ( document.querySelector("#input-id").value === "" ) {
+        postData(newEntry);
+    } else {
+        putData(newEntry);
+    }
+
 });
 
 // Invoke the factory function, passing along the form field values
@@ -33,6 +38,18 @@ const newJournalEntry = (date, concepts, entry, mood) => {
 const postData = (object) => {
     fetch("http://localhost:8888/entries", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(object)
+    })
+}
+
+const putData = (object) => {
+    let id = document.querySelector("#input-id").value;
+
+    fetch(`http://localhost:8888/entries/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
