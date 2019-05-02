@@ -19,7 +19,7 @@
         <div class="form-container">
             <h2>Input</h2>
             <form class="form">
-                <fieldset>
+                <fieldset id="form-fieldset">
                     <label>Date</label>
                     <input type="date" class="form-field date" required></input>
                
@@ -41,6 +41,36 @@
                 <div class="submit-container">
                 <input type="submit" value="Submit Entry" id="submit-button">
                 </div>
+
+                <div id="mood-div">
+                    <p>Filter by mood:</p>
+                    <div>
+                        <input type="radio" id="all" name="mood-radio" value="all"
+                                checked>
+                        <label for="all">All</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="happy" name="mood-radio" value="happy">
+                        <label for="happy">Happy</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="excited" name="mood-radio" value="excited">
+                        <label for="excited">Excited</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="sad" name="mood-radio" value="sad">
+                        <label for="sad">Sad</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="confused" name="mood-radio" value="confused">
+                        <label for="confused">Confused</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="over-it" name="mood-radio" value="over it">
+                        <label for="over-it">Over It</label>
+                    </div>
+                </div>
+
             </form>
         </div>
 
