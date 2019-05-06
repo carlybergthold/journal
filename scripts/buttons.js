@@ -1,5 +1,5 @@
+// event listener for filtering journal entries
 const radioButtons = document.getElementsByName("mood-radio");
-console.log(radioButtons);
 
 radioButtons.forEach(button => {
     button.addEventListener("click", event => {
@@ -8,9 +8,7 @@ radioButtons.forEach(button => {
             API.getJournalEntries()
             .then(entries => addEntryToDOM(entries));
         }
-
         else {
-
             const moodVal = event.target.value.toLowerCase();
             console.log(moodVal);
 
@@ -27,7 +25,6 @@ radioButtons.forEach(button => {
             // get the filtered entries
             API.getJournalEntries()
             .then(entries => addEntryToDOM(entries.filter(moodFilter)));
-
         }    
     })
 });
@@ -48,7 +45,6 @@ document.addEventListener("click", function(e){
     }
 
     else if (e.target.className === "edit-btn") {
-
         //populate form field with values from journal entry
         const id = e.target.id.split("-").pop();
 
@@ -57,20 +53,16 @@ document.addEventListener("click", function(e){
             return response.json();
           })
           .then(function(myJson) {
-            console.log(myJson);
             document.querySelector(".date").value = myJson.date;
             document.querySelector(".concepts").value = myJson.concepts;
             document.querySelector(".entry").value = myJson.entry;
             document.querySelector(".mood").value = myJson.mood;
             document.querySelector("#input-id").value = myJson.id;
 
-            // save new
-
-
+            // scroll form back into screen
+            document.querySelector(".form-container").scrollIntoView();
           });
-
     }
-
 });
 
 

@@ -11,6 +11,8 @@ const submitBtn = document.querySelector("#submit-button");
 
 submitBtn.addEventListener("click", function (e) {
 
+    e.preventDefault();
+
     let date = document.querySelector(".date").value;
     let concepts = document.querySelector(".concepts").value;
     let entry = document.querySelector(".entry").value;
@@ -35,24 +37,32 @@ const newJournalEntry = (date, concepts, entry, mood) => {
     };
 }
 
-const postData = (object) => {
-    fetch("http://localhost:8888/entries", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(object)
-    })
-}
+// event listener for search bar
+const searchBar = document.querySelector("#search-input");
+searchBar.addEventListener("keypress", (e) => {
 
-const putData = (object) => {
-    let id = document.querySelector("#input-id").value;
+    if(e.keyCode == 13) {
 
-    fetch(`http://localhost:8888/entries/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(object)
-    })
-}
+        e.preventDefault();
+        
+        API.getJournalEntries()
+        .then(entries => {
+            
+            const inputValue = searchBar.value.toLowerCase();        
+            let searchEntries = entries.filter(entry => {
+                for (let value of Object.values(entry)) {
+
+                    if (isNaN(value) && value.toLowerCase().includes(inputValue)) {
+                        return value;
+                    }
+                }
+            })
+            // clear the original entries
+            const el = document.querySelector('.entry-container');
+            el.innerHTML = "";
+
+            addEntryToDOM(searchEntries)
+        })
+    }
+})
+
