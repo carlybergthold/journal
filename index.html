@@ -17,60 +17,67 @@
     <div class="main-container">
 
         <div class="form-container">
-            <h2>Input</h2>
-            <form class="form">
-                <input type="text" id="input-id" hidden></input>
-                <fieldset id="form-fieldset">
-                    <label>Date</label>
-                    <input type="date" class="form-field date" required></input>
-               
-                    <label>Latest Concepts</label>
-                    <input type="text" class="form-field concepts" required></input>
-              
-                    <label>Journal Entry</label>
-                    <textarea name="journalEntry" class="form-field entry" cols="30" rows="4" required>My thoughts...</textarea>
-             
-                    <label>Currently Feeling</label>
-                    <select name="moods" class="form-field mood" required>
-                        <option value="Happy">Happy</option>
-                        <option value="Excited">Excited</option>
-                        <option value="Sad">Sad</option>
-                        <option value="Confused">Confused</option>
-                        <option value="Over It">Over It</option>
-                    </select>
-                </fieldset>
-                <div class="submit-container">
-                <input type="submit" value="Submit Entry" id="submit-button">
-                </div>
 
+            <section id="form">
+                <h2>Record Your Entry</h2>
+                <form class="form">
+                    <input type="text" id="input-id" hidden></input>
+                    <fieldset id="form-fieldset">
+                        <label>Date</label>
+                        <input type="date" class="form-field date" required></input>
+                
+                        <label>Latest Concepts</label>
+                        <input type="text" class="form-field concepts" required></input>
+                
+                        <label>Journal Entry</label>
+                        <textarea name="journalEntry" class="form-field entry" cols="30" rows="4" required>My thoughts...</textarea>
+                
+                        <label>Currently Feeling</label>
+                        <select name="moods" class="form-field mood" required>
+                            <option value="Happy">Happy</option>
+                            <option value="Excited">Excited</option>
+                            <option value="Sad">Sad</option>
+                            <option value="Confused">Confused</option>
+                            <option value="Over It">Over It</option>
+                        </select>
+                    </fieldset>
+                    <div class="submit-container">
+                    <input type="submit" value="Submit Entry" id="submit-button">
+                    </div>
+                </section>
+
+                <section id="userInput-container">
                 <div id="mood-div">
                     <p>Filter by mood:</p>
-                    <div>
+                    <div class="moodBox">
                         <input type="radio" id="all" name="mood-radio" value="all"
                                 checked>
                         <label for="all">All</label>
                     </div>
-                    <div>
+                    <div class="moodBox">
                         <input type="radio" id="happy" name="mood-radio" value="happy">
                         <label for="happy">Happy</label>
                     </div>
-                    <div>
+                    <div class="moodBox">
                         <input type="radio" id="excited" name="mood-radio" value="excited">
                         <label for="excited">Excited</label>
                     </div>
-                    <div>
-                        <input type="radio" id="sad" name="mood-radio" value="sad">
-                        <label for="sad">Sad</label>
-                    </div>
-                    <div>
+                    <div class="moodBox">
                         <input type="radio" id="confused" name="mood-radio" value="confused">
                         <label for="confused">Confused</label>
                     </div>
-                    <div>
+                    <div class="moodBox">
                         <input type="radio" id="over-it" name="mood-radio" value="over it">
                         <label for="over-it">Over It</label>
                     </div>
                 </div>
+
+                <div id="search-bar">
+                    <label for="search">Search</label>
+                    <input type="text" id="search-input" value="search" onfocus="this.value=''"> 
+                </div>
+
+                </section> <!-- end of user input container -->
 
             </form>
         </div>
