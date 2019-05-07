@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Daily Journal</title>
-    <link rel="stylesheet" type="text/css" href="/styles/journal.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles/journal.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
@@ -30,7 +30,7 @@
                         <input type="text" class="form-field concepts" required></input>
                 
                         <label>Journal Entry</label>
-                        <textarea name="journalEntry" class="form-field entry" cols="30" rows="4" required>My thoughts...</textarea>
+                        <textarea name="journalEntry" class="form-field entry" cols="30" rows="4" required onfocus="this.value=''">My thoughts...</textarea>
                 
                         <label>Currently Feeling</label>
                         <select name="moods" class="form-field mood" required>
@@ -88,11 +88,7 @@
 
     </div>
 
-    <script src="/scripts/data.js"></script>
-    <script src="/scripts/entryComponent.js"></script>
-    <script src="/scripts/entriesDOM.js"></script>
-    <script src="/scripts/journal.js"></script>
-    <script src="/scripts/buttons.js"></script>
+    <script src="/public/main.js"></script>
     
 </body>
 </html>

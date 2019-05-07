@@ -1,7 +1,6 @@
 
-
 // template for journal entry HTML
-createEntry = (entry) => {
+const createEntry = (entry) => {
     return `
             <div class="journal-entry">
                 <h2>${entry.date}</h2>
@@ -14,6 +13,7 @@ createEntry = (entry) => {
             `
 }
 
+export default createEntry
 
 
 
