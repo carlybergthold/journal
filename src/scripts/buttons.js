@@ -1,41 +1,37 @@
+import addEntryToDOM from "./entriesDOM"
+import API from "./data"
+
 // event listener for filtering journal entries
 const radioButtons = document.getElementsByName("mood-radio");
 
 radioButtons.forEach(button => {
     button.addEventListener("click", event => {
-
         if (event.target.value === "all") {
             API.getJournalEntries()
             .then(entries => addEntryToDOM(entries));
-        }
-        else {
+        } else {
             const moodVal = event.target.value.toLowerCase();
             console.log(moodVal);
-
             function moodFilter(obj) {
                 if (moodVal === obj.mood.toLowerCase()) {
-                return obj;
-                } 
+                    return obj;
+                }
             }
-
             // clear the original entries
-            const el = document.querySelector('.entry-container');
+            const el = document.querySelector(".entry-container");
             el.innerHTML = "";
-            
             // get the filtered entries
             API.getJournalEntries()
             .then(entries => addEntryToDOM(entries.filter(moodFilter)));
-        }    
+            }
     })
 });
 
 //add event listeners to delete buttons
 document.addEventListener("click", function(e){
-
     if (e.target.className === "delete-btn") {
         const id = e.target.id.split("-").pop();
-
-        fetch(`http://localhost:8888/entries/${id}`, {
+        fetch(`http://localhost:8080/entries/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -47,8 +43,7 @@ document.addEventListener("click", function(e){
     else if (e.target.className === "edit-btn") {
         //populate form field with values from journal entry
         const id = e.target.id.split("-").pop();
-
-        fetch(`http://localhost:8888/entries/${id}`)
+        fetch(`http://localhost:8080/entries/${id}`)
         .then(function(response) {
             return response.json();
           })
@@ -58,7 +53,6 @@ document.addEventListener("click", function(e){
             document.querySelector(".entry").value = myJson.entry;
             document.querySelector(".mood").value = myJson.mood;
             document.querySelector("#input-id").value = myJson.id;
-
             // scroll form back into screen
             document.querySelector(".form-container").scrollIntoView();
           });
